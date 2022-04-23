@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: Tanha-FD;
+  src: url('Tanha-FD.eot'),
+  src: url('Tanha-FD.eot?#iefix') format('Tanha-FD-opentype'),
+       url('Tanha-FD.woff') format('woff'),
+       url('Tanha-FD.ttf') format('truetype'),
+
+}
+
+body{
+    direction :rtl ;
+    text-align : right;
+    font-family: Tanha-FD;
+    font-size : 15px;
+   }
+
+.navbar-nav {
+    margin-left: initial !important;
+    margin-right: auto;
+
+}
+
+.post-meta{
+    text-align: left;
+}
+
+
+
+header.masthead .page-heading h1, header.masthead .site-heading h1 {
+    font-size: 100px;
+}
+
+.post-preview {
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+.nav ul {
+    padding-right:0;
+    }
+
+
+ .nav ul li {
+     border-bottom : none ;
+     height : 86px;
+     line-height : 86px;
+     font-size : 14px;
+     display : inline-block ;
+     float : left ;
+     margin : 0 auto ;
+
+     }
+
+
+.nav ul li a {
+    text-decoration : none ;
+    color : #000000 ;
+    display : block;
+    transition : .3s background-color ;
+    padding :0 24px;
+    }
+
+
+.nav ul li a :hover {
+    background-color : #5c89c7;
+    color : #FFFFFF;
+    }
+
+.nav a {
+    border-bottom : none;
+    }
+
+
+.nav li ul {
+    position : absolute;
+    display : none ;
+    width : inherit ;
+    }
+
+
+
+.nav li:hover ul {
+    display:block ;
+    }
+
+.nav ul li ul li {
+    display : block ;
+    float:none !important ;
+    height : auto ;
+    line-height:34px;
+    }
+
+.nav ul li ul li ul {
+    position : absolute ;
+    right : 100%;
+    top : 0;
+    display : none !important ;
+    }
+
+
+ .nav ul > li > ul > li:hover > ul {
+    display:block !important ;
+    }
+
+
+.nav ul > li > ul > li > ul > li :hover > ul {
+display:block !important ;}

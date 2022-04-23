@@ -1,0 +1,14 @@
+
+
+<!-- CHANGE ADMINISTRATION TITLE FROM DJANGO ADMIN TO VIDEO STORE ADMIN -->
+<!-- copy these codes from github , django/django , django , contrib , admin / templates , admin , base_site.html -->
+
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">VIDEO STORE ADMIN</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'registration/base.html' %}
+{% block title %}{% block title-meta %}
+    حذف مقاله
+{% endblock %}{% endblock %}
+<br><br>
+{{user.get_full_name}}
+
+{% block main %}خوش آمدید {{user.get_full_name}}
+
+<br><br>
+<div class="col-md-8 text-center mx-auto">
+    <div class="card card-danger">
+        <div class="card-header">
+            <h3 class="card-title mb-0 float-left">حذف مقاله</h3>
+        </div>
+    <div class="card-body py-4 ">
+        <form method="post">{% csrf_token %}
+            <p class="py-2">  آیا از حذف مقاله <b>"{{object}}"</b> از  <b>"{{object.author.get_full_name}}"</b> مطمئن هستید؟</p>
+            <input type="submit" value="حذف" class="btn btn-danger">
+            <input class="btn btn-default" type="button" value="خیر" onclick="location.href='{% url 'account:home' %}'" >
+        </form>
+    </div>
+    </div>
+</div>
+{% endblock %}

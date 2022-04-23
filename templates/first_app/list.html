@@ -1,0 +1,81 @@
+
+{% extends 'first_app/base.html' %}
+{% load static %}
+{% block title %} lin {% endblock %}
+{% block main %}
+{% load ratings %}
+
+
+
+
+<!-- Page Header -->
+  <header class="masthead" style="background-image: url('{% static 'first_app/img/home-bg.jpg' %}')">
+    <div class="overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Aylin's home !</h1>
+              <span class="subheading">welcome !</span>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          {% block header %}{% endblock %}
+
+          {% for article in object_list %}
+             <div class="post-preview">
+              <a href="{% url 'first_app:detail' slug=article.slug %}">
+
+                <h2 class="post-title">
+                  {{article.title}}
+                    {% if article.is_special %}
+                        <span class="badge badge-danger" style="font-size:20px">ویژه</span>
+                    {% endif %}
+                </h2>
+                  <div>{% ratings article %}</div>
+              </a>
+                <h4 class="post-subtitle">
+                  {{article.description|striptags|truncatewords:30}}
+                </h4>
+                 <p class="post-meta">نوشته شده توسط :
+                 <a href="{% url 'first_app:author' article.author %}">{{article.author.get_full_name}}</a></p>
+
+                 <img src="{{article.thumbnail.url}}" width="500" height="500">
+                 <p class="post-meta">{{article.jpublish}}</p>
+             </div>
+             <div>
+
+                 {% for cat in article.category.active %}
+                    <a href="{% url 'first_app:category' slug=cat.slug %}">#{{cat.title}}</a>
+                 {% endfor %}
+
+
+            </div>
+
+        {% endfor %}
+
+        <!-- Pager -->
+        {% if is_paginated %}
+          <div class="clearfix pager-button">        <!-- search django pagination and see it's documents to copy codes -->
+            {% if page_obj.has_next %}
+                <a class="btn btn-primary float-right ml-3" href="{% block next_page_url %}{% endblock %}"> صفحه بعدی &larr; </a>         <!-- felesh be samte rast:   &rarr;  !=   &larr;     felesh be samte chap  -->
+            {% endif %}
+            {% if page_obj.has_previous %}
+                <a class="btn btn-primary float-right" href="{% block previous_page_url %}{% endblock %}"> صفحه قبلی &rarr; </a>
+            {% endif %}
+        </div>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
